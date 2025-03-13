@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 
 import DashboardHeader from "./DashboardHeader";
-import DashboardSidebar from "./DashboardSidebar";
 import DashboardContent from "./DashboardContent";
 import UploadPhotoModal from "./UploadPhotoModal";
 import ShareAlbumModal from "./ShareAlbumModal";
-
 import "./Dashboard.css";
 import DashboardModal from "./DashboardModal";
+import DashboardSidebar from "./DashboardSidebar";
 
 const Dashboard = () => {
   // Stati principali
