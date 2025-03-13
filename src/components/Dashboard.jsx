@@ -6,7 +6,7 @@ import UploadPhotoModal from "./UploadPhotoModal";
 import ShareAlbumModal from "./ShareAlbumModal";
 import "./Dashboard.css";
 import DashboardModal from "./DashboardModal";
-import DashboardSidebar from "./DashboardSidebar";
+import DashboardSideBar from "./DashboardSidebar";
 
 const Dashboard = () => {
   // Stati principali
@@ -364,7 +364,7 @@ const Dashboard = () => {
         setSearchQuery={setSearchQuery}
       />
       <div className="row">
-        <DashboardSidebar
+        <DashboardSideBar
           activeTab={activeTab}
           setActiveTab={setActiveTab}
           setSelectedAlbum={setSelectedAlbum}

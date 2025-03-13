@@ -1,7 +1,7 @@
 import React from "react";
 import { Folder, Share2, Upload, Settings } from "lucide-react";
 
-const DashboardSidebar = ({
+const DashboardSideBar = ({
   activeTab,
   setActiveTab,
   setSelectedAlbum,
@@ -57,4 +57,4 @@ const DashboardSidebar = ({
   );
 };
 
-export default DashboardSidebar;
+export default DashboardSideBar;
