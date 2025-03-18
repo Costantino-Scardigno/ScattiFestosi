@@ -42,21 +42,11 @@ const Dashboard = () => {
   // Callback per il successo della condivisione
   const handleShareSuccess = () => {
     console.log("Album condiviso con successo");
-
     setRefreshTrigger((prev) => prev + 1);
   };
 
   // Funzione per eliminare un album
   const deleteAlbum = async (albumId) => {
-    // Chiede conferma prima di eliminare
-    if (
-      !window.confirm(
-        "Sei sicuro di voler eliminare questo album? Questa azione non può essere annullata."
-      )
-    ) {
-      return;
-    }
-
     const token = localStorage.getItem("authToken");
     if (!token) return;
 
@@ -93,7 +83,7 @@ const Dashboard = () => {
       console.log("Album eliminato con successo");
     } catch (error) {
       console.error("Errore durante l'eliminazione dell'album:", error);
-      alert("Si è verificato un errore durante l'eliminazione dell'album");
+      throw error; // Rilancia l'errore per gestirlo nel componente del modale
     }
   };
 
@@ -356,8 +346,33 @@ const Dashboard = () => {
     console.log("Nuovo album creato e aggiunto:", newAlbum);
   };
 
+  const uploadPhotos = async (formData) => {
+    try {
+      // Sostituisci con il tuo endpoint API effettivo
+      const response = await fetch("/api/photos/upload", {
+        method: "POST",
+        body: formData,
+        // Non impostare l'header Content-Type quando si usa FormData
+        // Il browser lo imposterà automaticamente a multipart/form-data
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(
+          errorData.message || "Errore durante il caricamento delle foto"
+        );
+      }
+
+      const result = await response.json();
+      return result;
+    } catch (error) {
+      console.error("Errore durante il caricamento delle foto:", error);
+      throw error;
+    }
+  };
+
   return (
-    <div className="d-flex flex-column vh-100 bg-dashboard">
+    <div className="d-flex flex-column vh-100 bg-dashboard p-3">
       <DashboardHeader
         onSearch={handleSearch}
         searchQuery={searchQuery}
@@ -393,7 +408,9 @@ const Dashboard = () => {
           deleteAlbum={deleteAlbum}
           noResults={noResults}
           resetSearch={resetSearch}
-          openShareModal={openShareModal} // Passa la funzione di condivisione
+          openShareModal={openShareModal}
+          setUploadedFiles={setUploadedFiles}
+          uploadPhotos={uploadPhotos}
         />
       </div>
 

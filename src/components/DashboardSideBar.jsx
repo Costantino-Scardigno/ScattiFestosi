@@ -14,11 +14,13 @@ const DashboardSideBar = ({
   };
 
   return (
-    <div className="bg-dashboard shadow-sm p-3 pt-4 border-bottom  ">
-      <div className="d-lg-flex d-md-flex d-sm-flex-column  align-items-center   gap-4">
+    <div className="bg-dashboard shadow-sm p-3 pt-4 border-bottom border-top ">
+      <div className="d-lg-flex d-md-flex d-sm-flex-column align-items-center gap-4">
         <button
           className={`border-1 text-start d-flex align-items-center justify-content-center mb-2 py-2 rounded-5 bg-review w-100 ${
-            activeTab === "albums" ? "btn-dash" : "btn-white text-dark"
+            activeTab === "albums"
+              ? "btn-dash"
+              : "btn-white text-primary-custom"
           }`}
           onClick={() => handleTabClick("albums")}
         >
@@ -27,7 +29,9 @@ const DashboardSideBar = ({
         </button>
         <button
           className={`border-1 text-start d-flex align-items-center justify-content-center mb-2 py-2 rounded-5 bg-review w-100 ${
-            activeTab === "shared" ? "btn-dash" : "btn-white text-dark"
+            activeTab === "shared"
+              ? "btn-dash"
+              : "btn-white text-primary-custom"
           }`}
           onClick={() => handleTabClick("shared")}
         >
@@ -36,7 +40,9 @@ const DashboardSideBar = ({
         </button>
         <button
           className={`border-1 text-start d-flex align-items-center justify-content-center mb-2 py-2 rounded-5 bg-review w-100 ${
-            activeTab === "upload" ? "btn-dash" : "btn-white text-dark"
+            activeTab === "upload"
+              ? "btn-dash"
+              : "btn-white text-primary-custom"
           }`}
           onClick={() => handleTabClick("upload")}
         >
@@ -45,7 +51,9 @@ const DashboardSideBar = ({
         </button>
         <button
           className={`border-1 text-start d-flex align-items-center justify-content-center mb-2 py-2 rounded-5 bg-review w-100 ${
-            activeTab === "settings" ? "btn-dash" : "btn-white text-dark"
+            activeTab === "settings"
+              ? "btn-dash"
+              : "btn-white text-primary-custom"
           }`}
           onClick={() => handleTabClick("settings")}
         >

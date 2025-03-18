@@ -5,7 +5,7 @@ import { FaFacebookSquare } from "react-icons/fa";
 function Footer() {
   return (
     <footer className="py-4 bg-footer w-100 mt-5m ">
-      <div className="container">
+      <div className="container-fluid">
         <div className="row pb-3 border-bottom justify-content-center">
           <div className="col-12 col-md-6 d-flex justify-content-center justify-content-md-center align-items-center mb-3 mb-md-0">
             <a
